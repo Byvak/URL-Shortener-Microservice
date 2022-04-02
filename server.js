@@ -19,7 +19,7 @@ app.get('/api/hello', function (req, res) {
     res.json({ greeting: 'hello API' });
 });
 
-app.post('/api/shorturl/', function (req, res) {
+app.post('/api/shorturl/:url', function (req, res) {
     var shorturl = req.body.url;
     console.log(shorturl);
 });
