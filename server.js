@@ -20,8 +20,11 @@ app.get('/api/hello', function (req, res) {
 });
 
 app.post('/api/shorturl/:url', function (req, res) {
-    var shorturl = req.body.url;
+    var shorturl = req.params.url;
     console.log(shorturl);
+    res.json({
+        haahha: "knkbdsjkcs"
+    })
 });
 
 app.listen(port, function () {
