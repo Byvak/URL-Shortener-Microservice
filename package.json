@@ -2,6 +2,9 @@
     "name": "shorturl",
     "version": "0.0.3",
     "description": "API project for freeCodeCamp",
+    "author": {
+        "name": "Burnny Kibonge"
+    },
     "main": "server.js",
     "scripts": {
         "start": "node server.js",
