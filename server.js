@@ -19,9 +19,16 @@ app.get('/api/hello', function (req, res) {
     res.json({ greeting: 'hello API' });
 });
 
-app.post('/api/shorturl/:url', function (req, res) {
-    var shorturl = req.params.url;
-    console.log(shorturl);
+//The route that handle the long url sended by the client
+app.post('/api/shorturl', function (req, res) {
+    var longUrl = req.body.url;
+});
+
+
+//The route that handle the shorturl sended by client and redirect him to the original url
+app.get('/api/shorturl/short_url', function (req, res) {
+    var shorturl = req.params.short_url;
+
     res.json({
         haahha: "knkbdsjkcs"
     })
