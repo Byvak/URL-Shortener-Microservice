@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const dns = require('dns');
+const URL = require('url').URL;
 const app = express();
 const bodyParser = require('body-parser');
 
@@ -25,19 +26,38 @@ app.get('/api/hello', function (req, res) {
 
 //The route that handle the long url sended by the client
 app.post('/api/shorturl', function (req, res) {
+
     var longUrl = req.body.url;
+    var parsedUrl;
     //First we need to check that the url is valid
-    dns.lookup(longUrl, (err, address) => {
-        if (err) {
-            res.json({
-                error: 'invalid url'
-            });
-        } else {
-            res.json({
-                Hey: "keep on your address is valid and it is " + address
-            });
+
+    const isValidUrl = (longUrl) => {
+        try {
+            parsedUrl = new URL(longUrl);
+            return true;
+        } catch (error) {
+            return false;
         }
-    });
+    }
+
+    if (isValidUrl(longUrl)) {
+        // We can now check if the submitted URL exists
+        dns.lookup(parsedUrl.host, (err) => {
+            if (err) {
+                res.json({
+                    error: "Invalid Url"
+                });
+            } else {
+                res.json({
+                    Gooo: "Very Good 2"
+                });
+            }
+        });
+    } else {
+        res.json({
+            error: "Invalid Url"
+        });
+    }
 });
 
 
