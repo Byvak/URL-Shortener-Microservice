@@ -26,11 +26,9 @@ app.get('/api/hello', function (req, res) {
 
 //The route that handle the long url sended by the client
 app.post('/api/shorturl', function (req, res) {
-
     var longUrl = req.body.url;
     var parsedUrl;
     //First we need to check that the url is valid
-
     const isValidUrl = (longUrl) => {
         try {
             parsedUrl = new URL(longUrl);
