@@ -8,7 +8,13 @@ const bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 const dbUri = process.env.MONGO_URI;
 
-mongoose.createConnection(dbUri, { useNewUrlParser: true, useUnifiedTechnology: true });
+mongoose.createConnection(dbUri, { useNewUrlParser: true, useUnifiedTopology: true }, (err) => {
+    if (err) {
+        console.log("Une erreur lors de la connection" + err);
+    } else {
+        console.log("Connexion etablie avec succes");
+    }
+});
 
 // Basic Configuration
 const port = process.env.PORT || 3000;
