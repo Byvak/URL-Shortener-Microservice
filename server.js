@@ -5,6 +5,10 @@ const dns = require('dns');
 const URL = require('url').URL;
 const app = express();
 const bodyParser = require('body-parser');
+var mongoose = require('mongoose');
+const dbUri = process.env.MONGO_URI;
+
+mongoose.createConnection(dbUri, { useNewUrlParser: true, useUnifiedTechnology: true });
 
 // Basic Configuration
 const port = process.env.PORT || 3000;
