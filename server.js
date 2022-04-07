@@ -7,6 +7,7 @@ const app = express();
 const bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 const dbUri = process.env.MONGO_URI;
+var Schema = mongoose.Schema;
 
 mongoose.createConnection(dbUri, { useNewUrlParser: true, useUnifiedTopology: true }, (err) => {
     if (err) {
