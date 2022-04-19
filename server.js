@@ -79,7 +79,6 @@ app.post('/api/shorturl', function (req, res) {
     }
 
     if (isValidUrl(longUrl)) {
-        // We can now check if the submitted URL exists
         const REPLACE_REGEX = /^https?:\/\/www./i;
         const hostName = longUrl.replace(REPLACE_REGEX, '');
         dns.lookup(hostName, (err) => {
