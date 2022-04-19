@@ -80,16 +80,21 @@ app.post('/api/shorturl', function (req, res) {
 
     if (isValidUrl(longUrl)) {
         // We can now check if the submitted URL exists
-        dns.lookup(parsedUrl.host, (err) => {
+        const REPLACE_REGEX = /^https?:\/\/www./i;
+        const hostName = longUrl.replace(REPLACE_REGEX, '');
+        dns.lookup(hostName, (err) => {
             if (err) {
+                console.log(hostName);
                 res.json({
                     error: "Invalid Url"
                 });
             } else {
+                console.log(hostName);
                 //Now we can shorten the url
                 res.json({
                     Gooo: "Very Good 2"
                 });
+
             }
         });
     } else {
