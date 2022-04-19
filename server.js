@@ -85,7 +85,6 @@ app.post('/api/shorturl', function (req, res) {
         // We can now check if the submitted URL exists
         dns.lookup(hostName, (err) => {
             if (err) {
-                console.log(hostName);
                 res.json({
                     error: "Invalid Url"
                 });
