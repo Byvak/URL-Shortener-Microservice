@@ -89,7 +89,6 @@ app.post('/api/shorturl', function (req, res) {
                     error: "Invalid Hostname"
                 });
             } else {
-                console.log(hostName);
                 //Now we can shorten the url
                 res.json({
                     Gooo: "Very Good 2"
