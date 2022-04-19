@@ -86,6 +86,7 @@ app.post('/api/shorturl', function (req, res) {
         dns.lookup(hostName, (err) => {
             if (err) {
                 res.json({
+                    error: "Invalid Hostname"
                 });
             } else {
                 console.log(hostName);
