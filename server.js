@@ -79,6 +79,7 @@ app.post('/api/shorturl', function (req, res) {
     }
 
     if (isValidUrl(longUrl)) {
+        //We first need to retrieve only the hostname by removing the protocol
         const REPLACE_REGEX = /^https?:\/\/www./i;
         const hostName = longUrl.replace(REPLACE_REGEX, '');
         dns.lookup(hostName, (err) => {
