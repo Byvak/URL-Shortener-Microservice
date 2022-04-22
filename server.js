@@ -10,6 +10,7 @@ const dbUri = process.env.MONGO_URI;
 var url_dao = require('./models/url_dao');
 //var Schema = mongoose.Schema;
 
+mongoose.connect(dbUri, { useNewUrlParser: true, useUnifiedTopology: true }, (err) => {
     if (err) {
         console.log("Une erreur lors de la connection" + err);
     } else {
