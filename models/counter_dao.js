@@ -8,6 +8,7 @@ module.exports.findByIdAndUpdate = function (id, callback) {
         { _id: id },
         { $inc: { seq: 1 } },
         (err, doc) => {
+            if (err) {
             } else {
                 callback(doc);
             }
