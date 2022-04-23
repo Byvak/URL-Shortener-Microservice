@@ -97,9 +97,14 @@ app.post('/api/shorturl', function (req, res) {
 //The route that handle the shorturl sended by client and redirect him to the original url
 app.get('/api/shorturl/:short_url', function (req, res) {
     var shorturl = req.params.short_url;
-    res.json({
-        haahha: "knkbdsjkcs"
-    })
+    var id = decode(shorturl);
+    url_dao.searchShortUrl(id, (getEtat, doc) => {
+        if (getEtat) {
+            res.redirect(doc.long_url);
+        } else {
+            res.json({ NotFound });
+        }
+    });
 });
 
 app.listen(port, function () {
