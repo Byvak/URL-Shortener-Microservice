@@ -50,8 +50,6 @@ function decode(str) {
     return decoded;
 }
 
-//
-
 //The route that handle the long url sended by the client
 app.post('/api/shorturl', function (req, res) {
     var longUrl = req.body.url;
