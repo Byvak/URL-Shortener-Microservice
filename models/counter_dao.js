@@ -6,6 +6,7 @@ const Counter = mongoose.model("Counter", counter_entity);
 module.exports.findByIdAndUpdate = function (id, callback) {
     Counter.findByIdAndUpdate(
         { _id: id },
+        { $inc: { seq: 1 } },
             } else {
                 callback(doc);
             }
