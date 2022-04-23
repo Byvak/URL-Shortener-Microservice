@@ -9,6 +9,7 @@ module.exports.findByIdAndUpdate = function (id, callback) {
         { $inc: { seq: 1 } },
         (err, doc) => {
             if (err) {
+                callback("Une erreur dommage : " + err);
             } else {
                 callback(doc);
             }
