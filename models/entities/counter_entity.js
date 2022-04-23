@@ -6,3 +6,4 @@ const counterEntity = new Schema({
     seq: { type: Number, default: 0 },
 }, { bufferCommands: false });
 
+module.exports = mongoose.model("Counter", counterEntity);
