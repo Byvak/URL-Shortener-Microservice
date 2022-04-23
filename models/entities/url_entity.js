@@ -7,3 +7,4 @@ module.exports.UrlEntity = function UrlEntity() {
         long_url: String,
         created_at: Date,
     });
+}
