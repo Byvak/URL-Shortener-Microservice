@@ -36,7 +36,6 @@ app.get('/', function (req, res) {
 app.get('/api/hello', function (req, res) {
     res.json({ greeting: 'hello API' });
 });
-
 var alphabet = '123456789abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ';
 var base = alphabet.length;
 //Function to convert a base58 string to base 10 integer
