@@ -79,8 +79,10 @@ app.post('/api/shorturl', function (req, res) {
                 });
             } else {
                 //Now we can shorten the url
-                res.json({
-                    Gooo: "Very Good 2"
+                url_dao.saveUrl(longUrl, function (response) {
+                    res.json({
+                        original_url: longUrl, short_url: response
+                    });
                 });
             }
         });
