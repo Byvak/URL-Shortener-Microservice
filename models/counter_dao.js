@@ -7,6 +7,7 @@ module.exports.findByIdAndUpdate = function (id, callback) {
     Counter.findByIdAndUpdate(
         { _id: id },
         { $inc: { seq: 1 } },
+        (err, doc) => {
             } else {
                 callback(doc);
             }
