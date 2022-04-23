@@ -39,18 +39,6 @@ app.get('/api/hello', function (req, res) {
 
 var alphabet = '123456789abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ';
 var base = alphabet.length;
-
-//Function to convert base 10 integer to base58 string
-function encode(num) {
-    var encoded = '';
-    while (num) {
-        var remainder = num % base;
-        num = Math.floor(num / base);
-        encoded = alphabet[remainder].toString() + encoded;
-    }
-    return encoded;
-}
-
 //Function to convert a base58 string to base 10 integer
 function decode(str) {
     var decoded = 0;
